@@ -33,6 +33,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -43,4 +46,25 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    //Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("androidx.cardview:cardview:1.0.0") // Or latest version
+
+    //Glide
+    implementation("com.github.bumptech.glide:glide:4.12.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
+    implementation("jp.wasabeef:glide-transformations:4.3.0")
+
+    //Corrutinas
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1")
+
+    //Fragment
+    implementation("androidx.fragment:fragment-ktx:1.5.0")
+    //Activity
+    implementation("androidx.activity:activity-ktx:1.5.0")
+    //Data binding
+    implementation("androidx.databinding:databinding-runtime:7.1.2")
+
 }
