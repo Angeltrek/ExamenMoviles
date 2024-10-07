@@ -22,7 +22,9 @@ class MainViewModel : ViewModel() {
     var totalPages = 1  // Número total de páginas (se actualizará con cada solicitud)
 
     fun getCharacters(page: Int = currentPage, limit: Int = 10) {
-        if (page <= totalPages) {  // Verificamos si hay más páginas para cargar
+        val safePage = maxOf(page, 1)
+
+        if (safePage <= totalPages) {  // Verificamos si hay más páginas para cargar
             isLoading.postValue(true)  // Indicamos que la carga está en progreso
             viewModelScope.launch(Dispatchers.IO) {
                 try {
@@ -30,7 +32,7 @@ class MainViewModel : ViewModel() {
                     Log.d("MainViewModel", result.toString())
                     result?.let {
                         totalPages = it.meta.totalPages  // Actualizamos el número total de páginas
-                        currentPage++  // Incrementamos la página actual para la próxima solicitud
+                        currentPage = page
                         characterList.postValue(result)
                         Log.d("MainViewModel", "Characters fetched successfully")
                     }

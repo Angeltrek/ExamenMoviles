@@ -11,12 +11,25 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         app:queryHint="Buscar por nombre"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="10dp"
         android:layout_marginEnd="24dp"
         app:iconifiedByDefault="false"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/BBack"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/BBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:text="atras"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/searchView" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"

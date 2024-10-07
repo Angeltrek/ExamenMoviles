@@ -3,6 +3,7 @@ package com.feature.examenmoviles.framework.views
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
@@ -70,13 +71,25 @@ class MainActivity : AppCompatActivity() {
                     val layoutManager = recyclerView.layoutManager as LinearLayoutManager
                     if (layoutManager.findLastCompletelyVisibleItemPosition() == characters.size - 1) {
                         // Se alcanzó el final de la lista
-                        viewModel.getCharacters()  // Cargar más personajes
+                        viewModel.getCharacters(viewModel.currentPage + 1)  // Cargar más personajes
                     }
                 }
             })
+
+            binding.BBack.setOnClickListener {
+                if (viewModel.currentPage > 1) {
+                    viewModel.getCharacters(viewModel.currentPage - 1)
+                } else {
+                    Log.d("MainActivity", "Ya estás en la primera página.")
+                    Toast.makeText(this, "Ya estás en la primera página.", Toast.LENGTH_SHORT).show()
+                }
+            }
         } else {
             // Si el adaptador ya está inicializado, simplemente actualiza los datos
-            adapter.updateCharacters(characters)  // Asegúrate de tener un método para actualizar los personajes en el adaptador
+            adapter.updateCharacters(characters)
+
+            // Desplazar el RecyclerView al inicio
+            binding.RVCharacters.scrollToPosition(0) // Desplazar a la parte superior
         }
     }
 
