@@ -9,12 +9,12 @@ object NetworkModuleDI {
     private val okHttpClient: OkHttpClient = OkHttpClient()
     private val gsonFactory: GsonConverterFactory = GsonConverterFactory.create()
 
-    operator fun invoke(): APIService {
+    operator fun invoke(): CharacterAPIService {
         return Retrofit.Builder()
             .baseUrl(Constants.BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(gsonFactory)
             .build()
-            .create(APIService::class.java)
+            .create(CharacterAPIService::class.java)
     }
 }
