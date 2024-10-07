@@ -1,2 +1,4 @@
 # ExamenMoviles
-Examen final de la materia de aplicaciones móviles
+Nombre: Angel Mauricio Ramirez Herrera
+Matricula: A01710158
+Plataforma: Android
