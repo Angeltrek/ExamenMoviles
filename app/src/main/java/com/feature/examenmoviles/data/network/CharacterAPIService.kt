@@ -4,7 +4,7 @@ import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Query
 
-interface APIService {
+interface CharacterAPIService {
     @GET("endpoint")
     @Headers("Content-Type: application/json")
     suspend fun getSomething(

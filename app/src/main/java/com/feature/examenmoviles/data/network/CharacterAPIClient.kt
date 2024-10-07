@@ -1,7 +1,7 @@
 package com.feature.examenmoviles.data.network
 
-class APIClient {
-    private lateinit var api: APIService
+class CharacterAPIClient {
+    private lateinit var api: CharacterAPIService
 
     suspend fun getSomething(parameter: String): String? {
         api = NetworkModuleDI()
